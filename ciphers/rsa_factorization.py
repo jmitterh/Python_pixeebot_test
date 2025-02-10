@@ -8,8 +8,8 @@ More readable source: https://www.di-mgt.com.au/rsa_factorize_n.html
 large number can take minutes to factor, therefore are not included in doctest.
 """
 import math
-import random
 from typing import List
+import secrets
 
 
 def rsafactor(d: int, e: int, N: int) -> List[int]:
@@ -34,7 +34,7 @@ def rsafactor(d: int, e: int, N: int) -> List[int]:
     p = 0
     q = 0
     while p == 0:
-        g = random.randint(2, N - 1)
+        g = secrets.SystemRandom().randint(2, N - 1)
         t = k
         while True:
             if t % 2 == 0:
