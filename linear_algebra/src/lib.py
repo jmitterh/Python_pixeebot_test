@@ -22,7 +22,7 @@ Overview:
 
 
 import math
-import random
+import secrets
 
 
 class Vector(object):
@@ -200,8 +200,8 @@ def randomVector(N, a, b):
         output: returns a random vector of size N, with 
                 random integer components between 'a' and 'b'.
     """
-    random.seed(None)
-    ans = [random.randint(a, b) for i in range(N)]
+    secrets.SystemRandom().seed(None)
+    ans = [secrets.SystemRandom().randint(a, b) for i in range(N)]
     return Vector(ans)
 
 
@@ -375,6 +375,6 @@ def randomMatrix(W, H, a, b):
         returns a random matrix WxH with integer components
         between 'a' and 'b'
     """
-    random.seed(None)
-    matrix = [[random.randint(a, b) for j in range(W)] for i in range(H)]
+    secrets.SystemRandom().seed(None)
+    matrix = [[secrets.SystemRandom().randint(a, b) for j in range(W)] for i in range(H)]
     return Matrix(matrix, W, H)

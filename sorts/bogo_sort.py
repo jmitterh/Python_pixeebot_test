@@ -7,8 +7,7 @@ python3 -m doctest -v bogo_sort.py
 For manual testing run:
 python bogo_sort.py
 """
-
-import random
+import secrets
 
 
 def bogo_sort(collection):
@@ -34,7 +33,7 @@ def bogo_sort(collection):
         return True
 
     while not isSorted(collection):
-        random.shuffle(collection)
+        secrets.SystemRandom().shuffle(collection)
     return collection
 
 
