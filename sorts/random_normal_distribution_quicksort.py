@@ -1,12 +1,12 @@
-from random import randint
 from tempfile import TemporaryFile
 import numpy as np
+import secrets
 
 
 def _inPlaceQuickSort(A, start, end):
     count = 0
     if start < end:
-        pivot = randint(start, end)
+        pivot = secrets.SystemRandom().randint(start, end)
         temp = A[end]
         A[end] = A[pivot]
         A[pivot] = temp
@@ -20,7 +20,7 @@ def _inPlaceQuickSort(A, start, end):
 def _inPlacePartition(A, start, end):
 
     count = 0
-    pivot = randint(start, end)
+    pivot = secrets.SystemRandom().randint(start, end)
     temp = A[end]
     A[end] = A[pivot]
     A[pivot] = temp

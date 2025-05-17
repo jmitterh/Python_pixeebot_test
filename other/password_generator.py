@@ -1,6 +1,6 @@
 """Password generator allows you to generate a random password of length N."""
-from random import choice, shuffle
 from string import ascii_letters, digits, punctuation
+import secrets
 
 
 def password_generator(length=8):
@@ -17,7 +17,7 @@ def password_generator(length=8):
     0
     """
     chars = tuple(ascii_letters) + tuple(digits) + tuple(punctuation)
-    return "".join(choice(chars) for x in range(length))
+    return "".join(secrets.choice(chars) for x in range(length))
 
 
 # ALTERNATIVE METHODS
@@ -38,14 +38,14 @@ def alternative_password_generator(ctbi, i):
         + random(punctuation, quotient)
     )
     chars = list(chars)
-    shuffle(chars)
+    secrets.SystemRandom().shuffle(chars)
     return "".join(chars)
 
     # random is a generalised function for letters, characters and numbers
 
 
 def random(ctbi, i):
-    return "".join(choice(ctbi) for x in range(i))
+    return "".join(secrets.choice(ctbi) for x in range(i))
 
 
 def random_number(ctbi, i):

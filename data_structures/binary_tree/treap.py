@@ -1,5 +1,5 @@
-from random import random
 from typing import Tuple
+import secrets
 
 
 class Node(object):
@@ -10,7 +10,7 @@ class Node(object):
 
     def __init__(self, value: int = None):
         self.value = value
-        self.prior = random()
+        self.prior = secrets.SystemRandom().random()
         self.left = None
         self.right = None
 
